@@ -12,17 +12,17 @@ const getAllRaffles = async () => {
 };
 
 //SHOW
-// const getOneRaffle = async (raffle_id) => {
-//   try {
-//     const oneRaffle = db.one(
-//       "SELECT * FROM raffles WHERE raffle_id=$1",
-//       raffle_id
-//     );
-//     return oneRaffle;
-//   } catch (error) {
-//     return error;
-//   }
-// };
+const getOneRaffle = async (raffle_id) => {
+  try {
+    const oneRaffle = db.one(
+      "SELECT * FROM raffles WHERE raffle_id=$1",
+      raffle_id
+    );
+    return oneRaffle;
+  } catch (error) {
+    return error;
+  }
+};
 
 //CREATE
 // const createRaffle = async (raffle) => {
@@ -35,4 +35,5 @@ const getAllRaffles = async () => {
 
 module.exports = {
   getAllRaffles,
+  getOneRaffle,
 };
