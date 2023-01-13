@@ -25,15 +25,20 @@ const getOneRaffle = async (raffle_id) => {
 };
 
 //CREATE
-// const createRaffle = async (raffle) => {
-//     try {
-//         const newRaffle = await db.one("INSERT INTO raffles (raffle_id, raffle_name, created_on, raffled_on, secret_token) VALUES ($1 $2 $3 $4 $5) RETURNING *", [raffle.]
-//     } catch (error) {
-//         return error
-//     }
-// }
+const createRaffle = async (raffle) => {
+  try {
+    const newRaffle = await db.one(
+      "INSERT INTO raffles (raffle_id, raffle_name, secret_token) VALUES ($1, $2, $3) RETURNING *",
+      [raffle.raffle_id, raffle.raffle_name, raffle.secret_token]
+    );
+    return newRaffle;
+  } catch (error) {
+    return error;
+  }
+};
 
 module.exports = {
   getAllRaffles,
   getOneRaffle,
+  createRaffle,
 };

@@ -1,7 +1,11 @@
 const express = require("express");
 const db = require("../db/dbConfig");
 const raffles = express.Router();
-const { getAllRaffles, getOneRaffle } = require("../queries/raffles");
+const {
+  getAllRaffles,
+  getOneRaffle,
+  createRaffle,
+} = require("../queries/raffles");
 
 raffles.get("/", async (req, res) => {
   const allRaffles = await getAllRaffles();
@@ -19,6 +23,15 @@ raffles.get("/:raffle_id", async (req, res) => {
     res.status(200).json(oneRaffle);
   } else {
     res.status(404).json({ error: "Raffle not found" });
+  }
+});
+
+raffles.post("/", async (req, res) => {
+  const newRaffle = await createRaffle(req.body);
+  if (newRaffle) {
+    res.status(200).json(newRaffle);
+  } else {
+    res.status(400).json({ error: error });
   }
 });
 
