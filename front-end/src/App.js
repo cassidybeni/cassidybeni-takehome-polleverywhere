@@ -20,7 +20,7 @@ function App() {
           path="/raffles/:raffle_id/winner"
           element={<PickWinner />}
         ></Route>
-        <Route path="/raffle/raffle_id/view" element={<RaffleView />}></Route>
+        <Route path="/raffles/:raffle_id/view" element={<RaffleView />}></Route>
       </Routes>
     </Router>
   );
