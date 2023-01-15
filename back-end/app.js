@@ -2,7 +2,6 @@
 const cors = require("cors");
 const express = require("express");
 const rafflesController = require("./controllers/rafflesController");
-const participantsController = require("./controllers/participantsController");
 
 // CONFIGURATION
 const app = express();
@@ -17,8 +16,6 @@ app.get("/", (req, res) => {
 });
 
 app.use("/raffles", rafflesController);
-
-app.use("/participants", participantsController);
 
 app.get("*", (req, res) => {
   res.send("page not found");
