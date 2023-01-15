@@ -5,6 +5,7 @@ const {
   getAllRaffles,
   getOneRaffle,
   createRaffle,
+  createEntry,
 } = require("../queries/raffles");
 
 raffles.get("/", async (req, res) => {
@@ -34,5 +35,30 @@ raffles.post("/", async (req, res) => {
     res.status(400).json({ error: error });
   }
 });
+
+raffles.get("/:raffle_id/participants", async (req, res) => {
+  const { raffle_id, participant_id } = req.params;
+  try {
+    const entries = await getEntries(raffle_id, participant_id);
+    if (entries[0]) {
+      res.status(200).json(entries);
+    }
+  } catch (error) {
+    res.status(500).json({ error: error });
+  }
+});
+
+raffles.post("/:raffle_id/participants", async (req, res) => {
+  const newEntry = await createEntry(req.body);
+  if (newEntry) {
+    res.status(200).json(newEntry);
+  } else {
+    res.status(400).json({ error: error });
+  }
+});
+
+raffles.put("/:raffle_id/winner", async (req, res) => {});
+
+raffles.get("/:raffle_id/winner", async (req, res) => {});
 
 module.exports = raffles;

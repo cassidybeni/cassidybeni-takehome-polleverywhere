@@ -13,7 +13,15 @@ CREATE TABLE raffles (
 DROP TABLE IF EXISTS participants;
 CREATE TABLE participants (
     participant_id SERIAL PRIMARY KEY,
+    raffle_id SERIAL, CONSTRAINT fk_raffle_entries FOREIGN KEY(raffle_id) REFERENCES raffles(raffle_id) ON DELETE CASCADE,
     first_name TEXT NOT NULL,
     last_name TEXT NOT NULL,
     email TEXT NOT NULL
+);
+
+DROP TABLE IF EXISTS winner;
+CREATE TABLE winner (
+    winner_id SERIAL PRIMARY KEY,
+    participant_id INTEGER NOT NULL,
+    raffle_id INTEGER NOT NULL
 );

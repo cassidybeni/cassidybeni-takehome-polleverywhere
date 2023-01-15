@@ -37,8 +37,40 @@ const createRaffle = async (raffle) => {
   }
 };
 
+const getAllEntries = async (participant_id) => {
+  try {
+    const raffles = await db.many(
+      "SELECT * FROM raffles WHERE participant_id=$1",
+      participant_id
+    );
+    return raffles;
+  } catch (error) {
+    return error;
+  }
+};
+
+const createEntry = async (raffle_id) => {
+  try {
+    const newEntry = await db.one(
+      "INSERT INTO raffles (participant_id, first_name, last_name, email) VALUES ($1, $2, $3, $4) RETURNING *",
+      [
+        participant.participant_id,
+        participant.first_name,
+        participant.last_name,
+        participant.email,
+        raffle_id,
+      ]
+    );
+    return newEntry;
+  } catch (error) {
+    return error;
+  }
+};
+
 module.exports = {
   getAllRaffles,
   getOneRaffle,
   createRaffle,
+  getAllEntries,
+  createEntry,
 };
