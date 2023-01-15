@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function RaffleParticipants() {
-  return (
-    <div>RaffleParticipants</div>
-  )
+  return <div>RaffleParticipants</div>;
 }
 
-export default RaffleParticipants
+export default RaffleParticipants;

@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import SingleRaffle from "../src/components/SingleRaffle";
 import RaffleParticipants from "../src/components/RaffleParticipants";
 import PickWinner from "../src/components/PickWinner";
+import RaffleView from "../src/components/RaffleView";
 import Home from "../src/components/Home";
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
           path="/raffles/:raffle_id/winner"
           element={<PickWinner />}
         ></Route>
+        <Route path="/raffle/raffle_id/view" element={<RaffleView />}></Route>
       </Routes>
     </Router>
   );
