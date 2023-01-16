@@ -1,0 +1,11 @@
+.single-raffle-container {
+  padding: 20px;
+}
+.single-raffle-container button {
+  margin: 20px;
+  width: 100px;
+}
+
+.single-raffle-container input {
+  font-size: medium;
+}

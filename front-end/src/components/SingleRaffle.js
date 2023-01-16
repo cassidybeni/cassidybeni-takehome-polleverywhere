@@ -1,10 +1,12 @@
 import React from "react";
 import NavBar from "./NavBar";
+import "./SingleRaffle.css";
 
 function SingleRaffle() {
   return (
-    <div>
+    <div className="single-raffle-container">
       <NavBar></NavBar>
+      <h2>Register to participate in the raffle:</h2>
       <form>
         <label>First Name*</label>
         <input type="text" required placeholder="First Name"></input>
@@ -15,6 +17,7 @@ function SingleRaffle() {
         <label>Phone</label>
         <input type="text" placeholder="Phone"></input>
         <button type="submit">Submit</button>
+        <br></br>
         <button type="button">Reset</button>
       </form>
     </div>
