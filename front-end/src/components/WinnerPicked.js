@@ -1,7 +1,7 @@
 import React from "react";
 import NavBar from "./NavBar";
 
-function RaffleParticipants() {
+function WinnerPicked() {
   return (
     <div>
       <NavBar></NavBar>
@@ -9,4 +9,4 @@ function RaffleParticipants() {
   );
 }
 
-export default RaffleParticipants;
+export default WinnerPicked;

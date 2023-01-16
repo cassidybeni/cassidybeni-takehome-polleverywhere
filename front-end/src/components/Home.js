@@ -29,12 +29,19 @@ function Home() {
       {raffles.map((raffle) => {
         return <Raffle key={raffle.raffle_name} raffle={raffle} />;
       })}
+      <h1>Raffle App</h1>
+      <h2>New Raffle:</h2>
       <form>
-        <label>Name:</label>
+        <label>Raffle Name:*</label>
         <input type="text" required></input>
-        <label>Secret Token:</label>
+        <label>Raffle Secret Token*</label>
         <input type="text" required></input>
-        <button>submit</button>
+        <p>
+          You must remember the Raffle token because it will be asked when
+          picking a winner
+        </p>
+        <button>Create New Raffle</button>
+        <h2>All Raffles:</h2>
       </form>
     </div>
   );

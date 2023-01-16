@@ -5,9 +5,9 @@ function NavBar() {
   return (
     <div>
       <nav>
-        <Link to="/">Raffles</Link>{" "}
+        <Link to="/">All Raffles</Link>{" "}
         <Link to="/raffles/raffle_id/participants">Participants</Link>{" "}
-        <Link to="raffles/raffle_id/winner">Pick Winner</Link>{" "}
+        <Link to="/raffles/raffle_id/winner">Pick Winner</Link>{" "}
       </nav>
     </div>
   );
