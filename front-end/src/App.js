@@ -8,21 +8,27 @@ import Home from "../src/components/Home";
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home />}></Route>
-        <Route path="/raffles/:raffle_id" element={<SingleRaffle />}></Route>
-        <Route
-          path="/raffles/:raffle_id/participants"
-          element={<RaffleParticipants />}
-        ></Route>
-        <Route
-          path="/raffles/:raffle_id/winner"
-          element={<PickWinner />}
-        ></Route>
-        <Route path="/raffles/:raffle_id/view" element={<RaffleView />}></Route>
-      </Routes>
-    </Router>
+    <div>
+      <h1>Raffle App</h1>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />}></Route>
+          <Route path="/raffles/:raffle_id" element={<SingleRaffle />}></Route>
+          <Route
+            path="/raffles/:raffle_id/participants"
+            element={<RaffleParticipants />}
+          ></Route>
+          <Route
+            path="/raffles/:raffle_id/winner"
+            element={<PickWinner />}
+          ></Route>
+          <Route
+            path="/raffles/:raffle_id/view"
+            element={<RaffleView />}
+          ></Route>
+        </Routes>
+      </Router>
+    </div>
   );
 }
 

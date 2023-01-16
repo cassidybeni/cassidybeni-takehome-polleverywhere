@@ -1,11 +1,12 @@
 import React from "react";
+import "./Raffle.css";
 import { Link } from "react-router-dom";
 
 function Raffle({ raffle }) {
   return (
-    <div>
+    <div className="list-container">
       <Link to={`/raffles/${raffle.raffle_id}/view`}>
-        <h1>{raffle.raffle_name}</h1>
+        <h3 className="raffles-list">{raffle.raffle_name}</h3>
       </Link>
     </div>
   );

@@ -3,6 +3,8 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { apiURL } from "../util/apiURL";
 import Raffle from "../components/Raffle";
+import "./Home.css";
+
 const API = apiURL();
 
 function Home() {
@@ -25,24 +27,26 @@ function Home() {
   }, []);
 
   return (
-    <div>
-      {raffles.map((raffle) => {
-        return <Raffle key={raffle.raffle_name} raffle={raffle} />;
-      })}
-      <h1>Raffle App</h1>
+    <div className="home-container">
       <h2>New Raffle:</h2>
       <form>
         <label>Raffle Name:*</label>
+        <br></br>
         <input type="text" required></input>
+        <br></br>
         <label>Raffle Secret Token*</label>
+        <br></br>
         <input type="text" required></input>
         <p>
           You must remember the Raffle token because it will be asked when
           picking a winner
         </p>
         <button>Create New Raffle</button>
-        <h2>All Raffles:</h2>
       </form>
+      <h2>All Raffles:</h2>
+      {raffles.map((raffle) => {
+        return <Raffle key={raffle.raffle_name} raffle={raffle} />;
+      })}
     </div>
   );
 }
