@@ -37,10 +37,10 @@ raffles.post("/", async (req, res) => {
 });
 
 raffles.get("/:raffle_id/participants", async (req, res) => {
-  const { raffle_id, participant_id } = req.params;
+  const { raffle_id} = req.params;
   try {
-    const entries = await getEntries(raffle_id, participant_id);
-    if (entries[0]) {
+    const entries = await getEntries(raffle_id);
+    if (entries) {
       res.status(200).json(entries);
     }
   } catch (error) {

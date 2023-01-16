@@ -37,13 +37,13 @@ const createRaffle = async (raffle) => {
   }
 };
 
-const getAllEntries = async (participant_id) => {
+const getAllEntries = async (raffle_id) => {
   try {
-    const raffles = await db.many(
-      "SELECT * FROM raffles WHERE participant_id=$1",
-      participant_id
+    const allEntries = await db.any(
+      "SELECT * FROM participants WHERE raffle_id=$1",
+      raffle_id
     );
-    return raffles;
+    return allEntries;
   } catch (error) {
     return error;
   }
@@ -52,7 +52,7 @@ const getAllEntries = async (participant_id) => {
 const createEntry = async (raffle_id) => {
   try {
     const newEntry = await db.one(
-      "INSERT INTO raffles (participant_id, first_name, last_name, email) VALUES ($1, $2, $3, $4) RETURNING *",
+      "INSERT INTO raffles (participant_id, first_name, last_name, email, raffle_id) VALUES ($1, $2, $3, $4, $5) RETURNING *",
       [
         participant.participant_id,
         participant.first_name,
