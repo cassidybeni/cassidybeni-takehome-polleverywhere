@@ -1,7 +1,7 @@
 \c takehome_dev;
 
 INSERT INTO raffles (raffle_name, secret_token) VALUES
-('Sample Raffle',  'nje234'),
+('Sample Raffle', 'nje234'),
 ('Jovanny''s Raffle', 'xmdf234'),
 ('Cali''s Raffle', 'ndow3');
 
