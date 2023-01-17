@@ -6,13 +6,13 @@ function NavBar() {
   const { raffle_id } = useParams();
   return (
     <nav className="nav-container">
-      <button>
+      <button className="nav-btn">
         <Link to="/">All Raffles</Link>
       </button>
-      <button>
+      <button className="nav-btn">
         <Link to={`/raffles/${raffle_id}/participants`}>Participants</Link>
       </button>
-      <button>
+      <button className="nav-btn">
         <Link to={`/raffles/${raffle_id}/winner`}>Pick Winner</Link>
       </button>
     </nav>
