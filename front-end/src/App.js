@@ -5,7 +5,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import SingleRaffle from "../src/components/SingleRaffle";
 import RaffleParticipants from "../src/components/RaffleParticipants";
 import PickWinner from "../src/components/PickWinner";
-import RaffleView from "../src/components/RaffleView";
 import Home from "../src/components/Home";
 import { apiURL } from "./util/apiURL";
 const API = apiURL();
@@ -44,10 +43,6 @@ function App() {
           <Route
             path="/raffles/:raffle_id/winner"
             element={<PickWinner />}
-          ></Route>
-          <Route
-            path="/raffles/:raffle_id/view"
-            element={<RaffleView />}
           ></Route>
         </Routes>
       </Router>
