@@ -1,53 +1,15 @@
-# PERN Final Project Template
+# Poll Everywhere Take Home
 
-- select `use this template`
-- clone this repo
-
-## Getting Started
-
-### Project Structure
-
-```
-├── README.md (what you are currently reading)
-├── back-end (a basic express app)
-├── front-end (a basic create-react-app)
-└── package.json (necessary boilerplate for heroku deployment )
-```
-
-**NOTE:** - You will have 3 `package.json` files in this project
-
-- **Top level** - necessary for heroku deployment: you don't need to do anything with this file, it is set up for you
-- **back-end** - everything to do with the express/postgres backend
-- **front-end** - everything to do with the create-react-app front-end
-
-### `back-end` Set Up and Deployment to Heroku
-
-#### Basic App
-
-**/back-end**
-
-- `cd back-end`
-- `npm install`
-- `touch .env`
-
-make sure you are on the same level as the `package.json` of the `back-end` directory
-
-- `touch .env`
-
-```
-PORT=3333
-PG_HOST=localhost
-PG_PORT=5432
-PG_DATABASE=postgres
-PG_USER=postgres
-PG_PASSWORD=""
-```
-
-- `npm run db:init`
-- `npm run db:seed`
-
-Test app locally. If it does not work locally, it will not work on Heroku.
-
-Fix bugs.
-
-When you are ready, deploy this app. 
+## How to run project locally:
+1. Open with code editor
+2. Run npm i in entire project
+3. cd into backend
+4. Run npm i
+5. Open postgres
+6. Run following commands in terminal:
+    nodemon 
+    psql -U postgres -f db/schema.sql
+    psql -U postgres -f db/seed.sql
+7. cd into frontend
+8. Run npm i
+9. Run npm start in terminal
