@@ -8,7 +8,7 @@ function PickWinner() {
       <h2>Pick a Winner</h2>
       <form>
         <label>Secret Token:</label>
-        <input type="text" required></input>
+        <input type="text" required placeholder="Secret Token"></input>
         <button>Pick a Winner</button>
       </form>
       <div>

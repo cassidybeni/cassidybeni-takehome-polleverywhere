@@ -67,10 +67,42 @@ const createEntry = async (raffle_id) => {
   }
 };
 
+const updateWinner = async (raffle_id, winner_id, winner) => {
+  try {
+    const updatedWinner = await db.one(
+      "UPDATE raffles SET winner_name=$1, email=$2, raffle_ticket=$3 WHERE raffle_id=$4 AND winner_id=$5 RETURNING *",
+      [
+        winner.winner_name,
+        winner.email,
+        winner.raffle_ticket,
+        raffle_id,
+        winner_id,
+      ]
+    );
+    return updatedWinner;
+  } catch (error) {
+    return error;
+  }
+};
+
+const getWinner = async (winner_id) => {
+  try {
+    const winner = db.any(
+      "SELECT * FROM raffles WHERE winner_id=$1",
+      winner_id
+    );
+    return winner;
+  } catch (error) {
+    return error;
+  }
+};
+
 module.exports = {
   getAllRaffles,
   getOneRaffle,
   createRaffle,
   getAllEntries,
   createEntry,
+  updateWinner,
+  getWinner,
 };
