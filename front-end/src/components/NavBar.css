@@ -6,7 +6,11 @@
   padding-right: 25%;
 }
 
-a:link a:visited {
+a:visited {
   font-size: small;
   color: black;
+}
+
+button {
+ margin: 25px;
 }
